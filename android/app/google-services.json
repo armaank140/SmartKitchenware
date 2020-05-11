@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1082215623247",
+    "firebase_url": "https://smartkitchenware-3f9f5.firebaseio.com",
+    "project_id": "smartkitchenware-3f9f5",
+    "storage_bucket": "smartkitchenware-3f9f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1082215623247:android:d186524d00c341fdfa983a",
+        "android_client_info": {
+          "package_name": "amscorp.smart_kitchenware"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1082215623247-i1ftl54b79h1amaohceu9gipfa4n66ju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAjBHDn-8MswUIvzYvhN84e7Z-GiazyUU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1082215623247-i1ftl54b79h1amaohceu9gipfa4n66ju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
