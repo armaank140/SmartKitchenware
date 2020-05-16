@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_kitchenware/services/auth.dart';
+import 'package:smart_kitchenware/shared/constants.dart';
 
 class Register extends StatefulWidget {
 
@@ -47,6 +48,7 @@ class _RegisterState extends State<Register> {
             children: <Widget>[
               SizedBox(height: 20.0,),
               TextFormField(
+                decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 validator: (val) => val.isEmpty ? 'Ente an Email' : null,
                 onChanged: (val){
                   setState(() => email = val);
@@ -55,6 +57,7 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0,),
               TextFormField(
+                decoration: textInputDecoration.copyWith(hintText: 'Password'),
                 validator: (val) => val.length <8 ? 'Ente a password 8+ char long' : null,
                 obscureText: true,
                 onChanged: (val){
@@ -82,7 +85,7 @@ class _RegisterState extends State<Register> {
               Text(
                 error,
                 style: TextStyle(color: Colors.red, fontSize: 14.0),
-              )
+              ),
             ],
           ),
         ),
