@@ -53,7 +53,13 @@ class _RegisterState extends State<Register> {
               children: <Widget>[
                 SizedBox(height: 20.0,),
                 TextFormField(
-                  decoration: textInputDecoration.copyWith(hintText: 'Enter your Name'),
+                  decoration: textInputDecoration.copyWith(
+                      hintText: 'Enter your Name',
+                    prefixIcon: Icon(
+                    Icons.person,
+                    color: Colors.black,
+                  ),
+                  ),
                   validator: (val) => val.isEmpty ? 'Ente a Name' : null,
                   onChanged: (val){
                     setState(() => name = val);
@@ -62,7 +68,13 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(height: 20.0,),
                 TextFormField(
-                  decoration: textInputDecoration.copyWith(hintText: 'Enter your Phone no'),
+                  decoration: textInputDecoration.copyWith(
+                      hintText: 'Enter your Phone no',
+                    prefixIcon: Icon(
+                      Icons.phone,
+                      color: Colors.black,
+                    ),
+                  ),
                   validator: (val) => val.isEmpty ? 'Ente a Phone Number' : null,
                   onChanged: (val){
                     setState(() => number = val);
@@ -71,7 +83,13 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(height: 20.0,),
                 TextFormField(
-                  decoration: textInputDecoration.copyWith(hintText: 'Enter yor Email'),
+                  decoration: textInputDecoration.copyWith(
+                      hintText: 'Enter yor Email',
+                    prefixIcon: Icon(
+                      Icons.email,
+                      color: Colors.black,
+                    ),
+                  ),
                   validator: (val) => val.isEmpty ? 'Ente an Email' : null,
                   onChanged: (val){
                     setState(() => email = val);
@@ -80,7 +98,13 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(height: 20.0,),
                 TextFormField(
-                  decoration: textInputDecoration.copyWith(hintText: 'Enter your Password'),
+                  decoration: textInputDecoration.copyWith(
+                      hintText: 'Enter your Password',
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: Colors.black,
+                    ),
+                  ),
                   validator: (val) => val.length <8 ? 'Ente a password 8+ char long' : null,
                   obscureText: true,
                   onChanged: (val){
@@ -90,10 +114,21 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(height: 20.0,),
                 RaisedButton(
+                  elevation: 5.0,
+                  padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 70.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
                   color: Colors.white,
                   child: Text(
                     'Rigester',
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'OpenSans',
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                   // style: TextStyle(color: Colors.black),
                   ),
                   onPressed: () async{
                     if(_formKey.currentState.validate()){
