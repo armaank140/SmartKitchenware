@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_kitchenware/services/auth.dart';
 import 'package:smart_kitchenware/shared/constants.dart';
+import 'package:smart_kitchenware/shared/loading.dart';
 
 class Register extends StatefulWidget {
 
@@ -15,15 +16,18 @@ class _RegisterState extends State<Register> {
 
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
+  bool loading = false;
 
   String email = '';
+  String name = '';
+  String number = '';
   String password = '';
   String error ='';
 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       backgroundColor: Colors.blueAccent[100],
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
@@ -44,49 +48,73 @@ class _RegisterState extends State<Register> {
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Form(
           key: _formKey,
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: 20.0,),
-              TextFormField(
-                decoration: textInputDecoration.copyWith(hintText: 'Email'),
-                validator: (val) => val.isEmpty ? 'Ente an Email' : null,
-                onChanged: (val){
-                  setState(() => email = val);
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: 20.0,),
+                TextFormField(
+                  decoration: textInputDecoration.copyWith(hintText: 'Enter your Name'),
+                  validator: (val) => val.isEmpty ? 'Ente a Name' : null,
+                  onChanged: (val){
+                    setState(() => name = val);
 
-                },
-              ),
-              SizedBox(height: 20.0,),
-              TextFormField(
-                decoration: textInputDecoration.copyWith(hintText: 'Password'),
-                validator: (val) => val.length <8 ? 'Ente a password 8+ char long' : null,
-                obscureText: true,
-                onChanged: (val){
-                  setState(()  => password = val);
-
-                },
-              ),
-              SizedBox(height: 20.0,),
-              RaisedButton(
-                color: Colors.white,
-                child: Text(
-                  'Rigester',
-                  style: TextStyle(color: Colors.black),
+                  },
                 ),
-                onPressed: () async{
-                  if(_formKey.currentState.validate()){
-                   dynamic result = await _auth.registerWithEmailAndPassword(email, password);
-                   if(result == null){
-                     setState(() => error = 'Please Supply a Valid Email');
-                   }
-                  }
-                },
-              ),
-              SizedBox(height: 20.0,),
-              Text(
-                error,
-                style: TextStyle(color: Colors.red, fontSize: 14.0),
-              ),
-            ],
+                SizedBox(height: 20.0,),
+                TextFormField(
+                  decoration: textInputDecoration.copyWith(hintText: 'Enter your Phone no'),
+                  validator: (val) => val.isEmpty ? 'Ente a Phone Number' : null,
+                  onChanged: (val){
+                    setState(() => number = val);
+
+                  },
+                ),
+                SizedBox(height: 20.0,),
+                TextFormField(
+                  decoration: textInputDecoration.copyWith(hintText: 'Enter yor Email'),
+                  validator: (val) => val.isEmpty ? 'Ente an Email' : null,
+                  onChanged: (val){
+                    setState(() => email = val);
+
+                  },
+                ),
+                SizedBox(height: 20.0,),
+                TextFormField(
+                  decoration: textInputDecoration.copyWith(hintText: 'Enter your Password'),
+                  validator: (val) => val.length <8 ? 'Ente a password 8+ char long' : null,
+                  obscureText: true,
+                  onChanged: (val){
+                    setState(()  => password = val);
+
+                  },
+                ),
+                SizedBox(height: 20.0,),
+                RaisedButton(
+                  color: Colors.white,
+                  child: Text(
+                    'Rigester',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  onPressed: () async{
+                    if(_formKey.currentState.validate()){
+                      setState(() => loading = true);
+                     dynamic result = await _auth.registerWithEmailAndPassword(name, number, email, password);
+                     if(result == null){
+                       setState((){
+                        error = 'Please Supply a Valid Email';
+                        loading = false;
+                       });
+                     }
+                    }
+                  },
+                ),
+                SizedBox(height: 20.0,),
+                Text(
+                  error,
+                  style: TextStyle(color: Colors.red, fontSize: 14.0),
+                ),
+              ],
+            ),
           ),
         ),
       ),
