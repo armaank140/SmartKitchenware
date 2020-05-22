@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smart_kitchenware/screen/home/home_view.dart';
-import 'package:smart_kitchenware/screen/home/profile_view.dart';
-import 'package:smart_kitchenware/screen/home/shop_view.dart';
+import 'file:///C:/Users/USER/AndroidStudioProjects/smart_kitchenware/lib/screen/home/view/home_view.dart';
+import 'file:///C:/Users/USER/AndroidStudioProjects/smart_kitchenware/lib/screen/home/view/profile_view.dart';
+import 'file:///C:/Users/USER/AndroidStudioProjects/smart_kitchenware/lib/screen/home/view/shop_view.dart';
 import 'home.dart';
 
 class HomeWidget extends StatefulWidget {
