@@ -51,7 +51,7 @@ class _RegisterState extends State<Register> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SizedBox(height: 20.0,),
+               /* SizedBox(height: 20.0,),
                 TextFormField(
                   decoration: textInputDecoration.copyWith(
                       hintText: 'Enter your Name',
@@ -80,7 +80,7 @@ class _RegisterState extends State<Register> {
                     setState(() => number = val);
 
                   },
-                ),
+                ),*/
                 SizedBox(height: 20.0,),
                 TextFormField(
                   decoration: textInputDecoration.copyWith(

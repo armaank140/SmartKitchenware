@@ -34,7 +34,7 @@ class _SignInState extends State<SignIn> {
         actions: <Widget>[
           FlatButton.icon(
             icon: Icon(Icons.person,
-              color: Colors.white,
+              color: Colors.black,
             ),
             label:Text('Register',
             ),

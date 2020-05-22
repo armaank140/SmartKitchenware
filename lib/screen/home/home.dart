@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_kitchenware/services/auth.dart';
 import 'package:smart_kitchenware/services/auth.dart';
+import 'home_widget.dart';
 
 class Home extends StatelessWidget {
 
@@ -23,7 +24,18 @@ class Home extends StatelessWidget {
             },
           )
         ],
-      )
+      ),
+
+     // body: _children[_currentIndex],
+     body: HomeWidget(),
+
     );
   }
+
+
+
+
+
 }
+
+
